@@ -7,14 +7,17 @@ import {LogoutScreenComponent} from "./components/logout-screen/logout-screen.co
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {LogoutRouteGuard} from "./guard/auth.guard.logout";
+import {ProductListComponent} from "./components/product-list/product-list.component";
 
 
 export enum AppRoutes {
-  Main = '',
+  Main = 'sdad',
   Protected = 'protected',
   Unprotected = 'unprotected',
   Logout = 'logout',
   NotFound = '404',
+
+  Product = '',
 }
 
 const routes: Routes = [
@@ -42,6 +45,12 @@ const routes: Routes = [
     path: AppRoutes.NotFound,
     component: NotFoundComponent,
   },
+
+  {
+    path: AppRoutes.Product,
+    component: ProductListComponent,
+  },
+
   {
     path: '**',
     redirectTo: AppRoutes.NotFound,

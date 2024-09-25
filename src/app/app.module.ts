@@ -10,6 +10,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LogoutScreenComponent } from './components/logout-screen/logout-screen.component';
 import {environment} from "../environments/environment";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { HttpClientModule } from '@angular/common/http';
+
+import { ProductListComponent } from './components/product-list/product-list.component';
+import {ProductService} from "./services/product.service";
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -38,14 +42,18 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     UnprotectedRouteComponent,
     ProtectedRouteComponent,
     NotFoundComponent,
-    LogoutScreenComponent
+    LogoutScreenComponent,
+
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
+    HttpClientModule
   ],
   providers: [
+    ProductService,
 
     {
       provide: APP_INITIALIZER,
