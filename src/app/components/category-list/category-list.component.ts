@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {Product} from "../../models/product";
 import {ProductService} from "../../services/product.service";
 import {Category} from "../../models/category";
@@ -11,7 +11,7 @@ import {AppRoutes} from "../../app-routing.module";
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.css'
 })
-export class CategoryListComponent {
+export class CategoryListComponent implements OnInit{
 
   categories: Category[] | undefined;
   is_sub_category_available: boolean | undefined;
