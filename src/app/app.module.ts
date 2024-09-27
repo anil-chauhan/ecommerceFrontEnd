@@ -16,6 +16,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import {ProductService} from "./services/product.service";
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { SubCategoryListComponent } from './components/sub-category-list/sub-category-list.component';
+import {NgOptimizedImage} from "@angular/common";
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -54,7 +55,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOptimizedImage
   ],
   providers: [
     ProductService,
