@@ -8,6 +8,7 @@ import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {LogoutRouteGuard} from "./guard/auth.guard.logout";
 import {ProductListComponent} from "./components/product-list/product-list.component";
+import {CategoryListComponent} from "./components/category-list/category-list.component";
 
 
 export enum AppRoutes {
@@ -17,7 +18,8 @@ export enum AppRoutes {
   Logout = 'logout',
   NotFound = '404',
 
-  Product = '',
+  Product = 'product',
+  Category = '',
 }
 
 const routes: Routes = [
@@ -49,6 +51,11 @@ const routes: Routes = [
   {
     path: AppRoutes.Product,
     component: ProductListComponent,
+  },
+
+  {
+    path: AppRoutes.Category,
+    component: CategoryListComponent,
   },
 
   {

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import {ProductService} from "./services/product.service";
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -44,7 +45,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     NotFoundComponent,
     LogoutScreenComponent,
 
-    ProductListComponent
+    ProductListComponent,
+      CategoryListComponent
   ],
   imports: [
     BrowserModule,
