@@ -1,5 +1,24 @@
-<h1>i am on category</h1>
+<div class="container">
 
-<p *ngFor="let tempCategory of categories">
-  {{ tempCategory.categoryName}}
-</p>
+<table class="table" >
+
+  <thead>
+
+  <tr>
+    <th>Category</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let tempCategory of categories">
+
+    <td>
+      <button class="btn btn-primary" (click)="getProductsOrCategory(tempCategory.categoryName)">{{ tempCategory.categoryName }}</button>
+    </td>
+  </tr>
+  </tbody>
+
+
+</table>
+
+</div>

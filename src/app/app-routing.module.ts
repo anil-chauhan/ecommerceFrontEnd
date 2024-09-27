@@ -9,6 +9,7 @@ import {AuthGuard} from "./guard/auth.guard";
 import {LogoutRouteGuard} from "./guard/auth.guard.logout";
 import {ProductListComponent} from "./components/product-list/product-list.component";
 import {CategoryListComponent} from "./components/category-list/category-list.component";
+import {SubCategoryListComponent} from "./components/sub-category-list/sub-category-list.component";
 
 
 export enum AppRoutes {
@@ -20,6 +21,7 @@ export enum AppRoutes {
 
   Product = 'product',
   Category = '',
+  SubCategory="sub_category"
 }
 
 const routes: Routes = [
@@ -56,6 +58,11 @@ const routes: Routes = [
   {
     path: AppRoutes.Category,
     component: CategoryListComponent,
+  },
+
+  {
+    path: AppRoutes.SubCategory,
+    component: SubCategoryListComponent,
   },
 
   {
