@@ -1,6 +1,47 @@
-<h1>i am on product</h1>
+<div class="container">
 
-<p *ngFor="let tempProduct of products">
-  {{ tempProduct.name}}: {{ tempProduct.unitPrice | currency:'USD'}}
+  <table class="table" >
 
-</p>
+    <thead>
+
+    <tr>
+      <th>Products Name</th>
+      <th>Products description</th>
+      <th>Products price</th>
+      <th>Products stockQuantity</th>
+      <th>Products status</th>
+      <th>Products brand</th>
+      <th>Products productImageUrl</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let tempProduct of products">
+
+      <td>
+
+        <p class="p" value={tempProduct.productName}>{{ tempProduct.productName }}</p>
+      </td>
+      <td>
+        <p class="p" value={tempProduct.description}>{{ tempProduct.description }}</p>
+      </td>
+      <td>
+        <p class="p" value={tempProduct.price}>{{ tempProduct.price }}</p>
+      </td>
+      <td>
+        <p class="p" value={tempProduct.stockQuantity}>{{ tempProduct.stockQuantity }}</p>
+      </td>
+      <td>
+        <p class="p" value={tempProduct.brand}>{{ tempProduct.brand }}</p>
+      </td>
+      <td>
+        <p class="p" value={tempProduct.productImageUrl}>{{ tempProduct.productImageUrl }}</p>
+
+      </td>
+    </tr>
+    </tbody>
+
+
+  </table>
+
+</div>

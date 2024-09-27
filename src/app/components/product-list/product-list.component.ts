@@ -10,20 +10,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductListComponent implements OnInit{
   products: Product[] | undefined;
-  data:any;
+  categoryName:any;
 
   constructor(private productService: ProductService,private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.data = +params['data']; // The '+' converts the string to a number
+      this.categoryName = params['categoryName']; // The '+' converts the string to a number
     });
-    this.listProducts();
+    this.listProducts( this.categoryName);
   }
 
-  listProducts() {
+  listProducts( categoryName:any) {
+    console.log(categoryName)
     let data={
-    "categoryName":this.data.categoryName
+    "categoryName":categoryName
     }
     this.productService.getProductListByCategoryName(data).subscribe(
       data => {

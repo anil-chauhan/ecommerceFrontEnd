@@ -45,6 +45,7 @@ export class CategoryListComponent implements OnInit{
         }
         else {
           console.log(this.is_sub_category_available)
+          console.log(dataCategory)
           this.router.navigate(['/'+AppRoutes.Product, dataCategory]);
         }
       }
