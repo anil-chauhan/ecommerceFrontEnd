@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import {Product} from "../models/product";
 import {Category} from "../models/category";
 import {Router} from "@angular/router";
+import {CategoryTree} from "../models/categoryTree";
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class CategoryService {
 
   constructor(private httpClient: HttpClient,private router: Router) { }
 
-  getCategoryList(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.baseUrl).pipe(
+  getCategoryList(): Observable<CategoryTree[]> {
+    return this.httpClient.get<CategoryTree[]>(this.baseUrl).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
         console.error('Error fetching categories', error);

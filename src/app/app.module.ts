@@ -17,6 +17,12 @@ import {ProductService} from "./services/product.service";
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { SubCategoryListComponent } from './components/sub-category-list/sub-category-list.component';
 import {NgOptimizedImage} from "@angular/common";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatTreeModule} from "@angular/material/tree";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
+import { LeftSideMenuTreeComponent } from './components/left-side-menu-tree/left-side-menu-tree.component';
+import {MatButtonModule, MatIconButton} from "@angular/material/button";
+import {MatChip, MatChipSet} from "@angular/material/chips";
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -49,14 +55,21 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
 
     ProductListComponent,
       CategoryListComponent,
-      SubCategoryListComponent
+      SubCategoryListComponent,
+      LeftSideMenuTreeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatTreeModule,
+    MatButtonModule,
+    MatIconButton,
+    MatIcon,
+    MatChipSet,
+    MatChip,
   ],
   providers: [
     ProductService,
@@ -67,6 +80,7 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       multi: true,
       deps: [KeycloakService],
     },
+      provideAnimationsAsync(),
     /*provideUserIdleConfig({
       idle: environment.idleConfig.idle,
       ping: environment.idleConfig.ping,

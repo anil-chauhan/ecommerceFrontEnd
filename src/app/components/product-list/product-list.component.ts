@@ -17,7 +17,8 @@ export class ProductListComponent implements OnInit{
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.categoryName = params['categoryName']; // The '+' converts the string to a number
+
+      this.categoryName = localStorage.getItem('categoryName'); // The '+' converts the string to a number
     });
     this.listProducts( this.categoryName);
   }

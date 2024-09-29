@@ -1,0 +1,112 @@
+[
+  {
+    "categoryName": "food-products",
+    "urlSlug": "food_products",
+    "parentCatCategoriesId": 0,
+    "status": "available",
+    "subCategories": [
+      {
+        "categoryName": "rice",
+        "urlSlug": "rice",
+        "parentCatCategoriesId": 0,
+        "status": "available",
+        "subCategories": [
+          {
+            "categoryName": "rice basmati",
+            "urlSlug": "rice_basmati",
+            "parentCatCategoriesId": 0,
+            "status": "available",
+            "subCategories": [
+              {
+                "categoryName": "Edwina",
+                "urlSlug": "over the lazy dogThe qu",
+                "parentCatCategoriesId": 0,
+                "status": "fox ju",
+                "subCategories": null,
+                "expanded": false
+              },
+              {
+                "categoryName": "Ricky",
+                "urlSlug": "over the lazy dogThe quick brow",
+                "parentCatCategoriesId": 0,
+                "status": "over the la",
+                "subCategories": null,
+                "expanded": false
+              },
+              {
+                "categoryName": "Shayne",
+                "urlSlug": "quick br",
+                "parentCatCategoriesId": 0,
+                "status": "dogThe quic",
+                "subCategories": null,
+                "expanded": false
+              },
+              {
+                "categoryName": "Harry",
+                "urlSlug": "dogThe quick brown fox jumps over th",
+                "parentCatCategoriesId": 0,
+                "status": "jumps o",
+                "subCategories": [
+                  {
+                    "categoryName": "Patsy",
+                    "urlSlug": "quick brown fox jumps ove",
+                    "parentCatCategoriesId": 0,
+                    "status": "fox jumps over th",
+                    "subCategories": null,
+                    "expanded": false
+                  }
+                ],
+                "expanded": false
+              }
+            ],
+            "expanded": false
+          },
+          {
+            "categoryName": "Raymond",
+            "urlSlug": "brown fox jumps ove",
+            "parentCatCategoriesId": 0,
+            "status": "jumps over the l",
+            "subCategories": null,
+            "expanded": false
+          }
+        ],
+        "expanded": false
+      },
+      {
+        "categoryName": "Annabelle",
+        "urlSlug": "over the ",
+        "parentCatCategoriesId": 0,
+        "status": "the lazy dogThe",
+        "subCategories": [
+          {
+            "categoryName": "Clare",
+            "urlSlug": "the lazy dogThe q",
+            "parentCatCategoriesId": 0,
+            "status": "do",
+            "subCategories": null,
+            "expanded": false
+          }
+        ],
+        "expanded": false
+      },
+      {
+        "categoryName": "Jeffrey",
+        "urlSlug": "d",
+        "parentCatCategoriesId": 0,
+        "status": "brown fox ju",
+        "subCategories": [
+          {
+            "categoryName": "Lillian",
+            "urlSlug": "quick brown f",
+            "parentCatCategoriesId": 0,
+            "status": "fox jumps over the l",
+            "subCategories": null,
+            "expanded": false
+          }
+        ],
+        "expanded": false
+      }
+    ],
+    "expanded": false
+  }
+]

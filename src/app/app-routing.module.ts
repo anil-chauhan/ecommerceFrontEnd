@@ -10,6 +10,7 @@ import {LogoutRouteGuard} from "./guard/auth.guard.logout";
 import {ProductListComponent} from "./components/product-list/product-list.component";
 import {CategoryListComponent} from "./components/category-list/category-list.component";
 import {SubCategoryListComponent} from "./components/sub-category-list/sub-category-list.component";
+import {LeftSideMenuTreeComponent} from "./components/left-side-menu-tree/left-side-menu-tree.component";
 
 
 export enum AppRoutes {
@@ -19,8 +20,9 @@ export enum AppRoutes {
   Logout = 'logout',
   NotFound = '404',
 
-  Product = 'product',
-  Category = '',
+  Product = 'product/:categoryName',
+  Category = '1',
+  CategoryTree = '2',
   SubCategory="sub_category"
 }
 
@@ -63,6 +65,10 @@ const routes: Routes = [
   {
     path: AppRoutes.SubCategory,
     component: SubCategoryListComponent,
+  },
+  {
+    path: AppRoutes.CategoryTree,
+    component: LeftSideMenuTreeComponent,
   },
 
   {

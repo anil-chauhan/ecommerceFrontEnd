@@ -1,6 +1,4 @@
 import { Component,OnInit } from '@angular/core';
-import {Product} from "../../models/product";
-import {ProductService} from "../../services/product.service";
 import {Category} from "../../models/category";
 import {CategoryService} from "../../services/category.service";
 import {Router} from "@angular/router";
@@ -25,7 +23,7 @@ export class CategoryListComponent implements OnInit{
   listCategory() {
     this.categoryService.getCategoryList().subscribe(
       data => {
-        this.categories = data;
+        //this.categories = data;
       }
     )
   }
