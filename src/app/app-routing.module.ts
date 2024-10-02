@@ -11,6 +11,8 @@ import {ProductListComponent} from "./components/product-list/product-list.compo
 import {CategoryListComponent} from "./components/category-list/category-list.component";
 import {SubCategoryListComponent} from "./components/sub-category-list/sub-category-list.component";
 import {LeftSideMenuTreeComponent} from "./components/left-side-menu-tree/left-side-menu-tree.component";
+import {AddCategoryComponent} from "./components/admin/add-category/add-category.component";
+import {SelectCategoryComponent} from "./components/admin/select-category/select-category.component";
 
 
 export enum AppRoutes {
@@ -23,7 +25,9 @@ export enum AppRoutes {
   Product = 'product/:categoryName',
   Category = '1',
   CategoryTree = '2',
-  SubCategory="sub_category"
+  SubCategory="sub_category",
+  AddCategory="add_category",
+  SelectCategory="select_category"
 }
 
 const routes: Routes = [
@@ -60,6 +64,16 @@ const routes: Routes = [
   {
     path: AppRoutes.Category,
     component: CategoryListComponent,
+  },
+
+  {
+    path: AppRoutes.AddCategory,
+    component: AddCategoryComponent,
+  },
+
+  {
+    path: AppRoutes.SelectCategory,
+    component: SelectCategoryComponent,
   },
 
   {

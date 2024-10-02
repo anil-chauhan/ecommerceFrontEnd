@@ -1,0 +1,70 @@
+<div class="container" style="margin-top: 100px">
+  <h2 class="text-center mb-4">Create Category  {{categoryName}}</h2>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="border p-4 rounded shadow">
+    <div class="form-group">
+      <label for="categoryName">Category Name</label>
+      <input
+        id="categoryName"
+        formControlName="categoryName"
+        class="form-control"
+        required
+      />
+      <div *ngIf="categoryForm.get('categoryName')?.invalid && (categoryForm.get('categoryName')?.touched || categoryForm.get('categoryName')?.dirty)" class="text-danger">
+        <small>Category Name is required.</small>
+      </div>
+    </div>
+
+    <!--<div class="form-group">
+      <label for="urlSlug">URL Slug</label>
+      <input
+        id="urlSlug"
+        formControlName="urlSlug"
+        class="form-control"
+        required
+      />
+      <div *ngIf="categoryForm.get('urlSlug')?.invalid && (categoryForm.get('urlSlug')?.touched || categoryForm.get('urlSlug')?.dirty)" class="text-danger">
+        <small>URL Slug is required.</small>
+      </div>
+    </div>-->
+
+    <div *ngIf="categoryName!='mainCategory'">
+    <div class="form-group">
+      <label>Parent Category Name</label>
+
+      <!--<input
+        id="parentCatCategoriesId"
+        type="number"
+        formControlName="parentCatCategoriesId"
+        class="form-control"
+      />-->
+    </div>
+
+      <div class="form-group">
+
+        <label style="color:red;">{{subCategoryName}}</label>
+        <!--<input
+          id="parentCatCategoriesId"
+          type="number"
+          formControlName="parentCatCategoriesId"
+          class="form-control"
+        />-->
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status" class="form-control" required>
+        <option value="">Select status</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+      <div *ngIf="categoryForm.get('status')?.invalid && (categoryForm.get('status')?.touched || categoryForm.get('status')?.dirty)" class="text-danger">
+        <small>Status is required.</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="categoryForm.invalid" class="btn btn-primary btn-block">Create Category</button>
+  </form>
+</div>

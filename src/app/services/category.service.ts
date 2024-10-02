@@ -27,6 +27,16 @@ export class CategoryService {
     );
   }
 
+  createCategoryByName(data:any): Observable<string> {
+    return this.httpClient.post<string>("http://localhost:8098/create_category_by_name",data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of();  // Return an empty array on error
+      })
+    );
+  }
+
 
   isSubCategoryAvailable(data:any): Observable<boolean> {
    let  Url = 'http://localhost:8098/is_sub_category_available';

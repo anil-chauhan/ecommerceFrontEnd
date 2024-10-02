@@ -1,0 +1,46 @@
+
+<div style="margin-top: 100px" >
+  <button  mat-button (click)="createMainCategory()">create main Category</button>
+
+<mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
+  <!-- This is the tree node template for leaf nodes -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <!-- use a disabled button to provide padding for tree leaf -->
+    <button  mat-button   (click)="openConfirmDialog(node.categoryName)">{{node.categoryName}} no subCategory Available</button>
+
+    <!--
+
+        <mat-chip-set aria-label="Fish selection">
+          <mat-chip> {{node.categoryName}}</mat-chip>
+        </mat-chip-set>-->
+
+
+  </mat-tree-node>
+  <!-- This is the tree node template for expandable nodes -->
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodeToggle
+                 [cdkTreeNodeTypeaheadLabel]="node.categoryName">
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.categoryName">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{tree.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+
+    <mat-chip-set aria-label="Fish selection">
+      <mat-chip> {{node.categoryName}}</mat-chip>
+    </mat-chip-set>
+    <button  mat-button  (click)="openConfirmDialog(node.categoryName)">create New Category inside <span style="color: #232324">{{node.categoryName}}</span></button>
+
+
+  </mat-tree-node>
+</mat-tree>
+
+
+
+<!--<mat-tree>
+  <mat-tree-node> parent node </mat-tree-node>
+  <mat-tree-node> &#45;&#45; child node1 </mat-tree-node>
+  <mat-tree-node> &#45;&#45; child node2 </mat-tree-node>
+</mat-tree>-->
+
+</div>

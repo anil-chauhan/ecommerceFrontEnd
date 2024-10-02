@@ -23,6 +23,11 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
 import { LeftSideMenuTreeComponent } from './components/left-side-menu-tree/left-side-menu-tree.component';
 import {MatButtonModule, MatIconButton} from "@angular/material/button";
 import {MatChip, MatChipSet} from "@angular/material/chips";
+import { AddCategoryComponent } from './components/admin/add-category/add-category.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { SelectCategoryComponent } from './components/admin/select-category/select-category.component';
+import { ConfirmDialogComponent } from './components/admin/confirm-dialog/confirm-dialog.component';
+import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -56,7 +61,10 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     ProductListComponent,
       CategoryListComponent,
       SubCategoryListComponent,
-      LeftSideMenuTreeComponent
+      LeftSideMenuTreeComponent,
+      AddCategoryComponent,
+      SelectCategoryComponent,
+      ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +78,9 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     MatIcon,
     MatChipSet,
     MatChip,
+    ReactiveFormsModule,
+    MatDialogContent,
+    MatDialogActions,
   ],
   providers: [
     ProductService,
