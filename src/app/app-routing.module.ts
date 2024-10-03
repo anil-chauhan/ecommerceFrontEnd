@@ -13,6 +13,7 @@ import {SubCategoryListComponent} from "./components/sub-category-list/sub-categ
 import {LeftSideMenuTreeComponent} from "./components/left-side-menu-tree/left-side-menu-tree.component";
 import {AddCategoryComponent} from "./components/admin/add-category/add-category.component";
 import {SelectCategoryComponent} from "./components/admin/select-category/select-category.component";
+import {AddProductComponent} from "./components/admin/add-product/add-product.component";
 
 
 export enum AppRoutes {
@@ -27,6 +28,7 @@ export enum AppRoutes {
   CategoryTree = '2',
   SubCategory="sub_category",
   AddCategory="add_category",
+  AddProduct="add_product",
   SelectCategory="select_category"
 }
 
@@ -69,6 +71,11 @@ const routes: Routes = [
   {
     path: AppRoutes.AddCategory,
     component: AddCategoryComponent,
+  },
+
+  {
+    path: AppRoutes.AddProduct,
+    component: AddProductComponent,
   },
 
   {

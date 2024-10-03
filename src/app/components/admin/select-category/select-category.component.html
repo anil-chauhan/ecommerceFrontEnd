@@ -29,7 +29,7 @@
     <mat-chip-set aria-label="Fish selection">
       <mat-chip> {{node.categoryName}}</mat-chip>
     </mat-chip-set>
-    <button  mat-button  (click)="openConfirmDialog(node.categoryName)">create New Category inside <span style="color: #232324">{{node.categoryName}}</span></button>
+    <button  mat-button  (click)="createSubCategory(node.categoryName)">create New Category inside <span style="color: #232324">{{node.categoryName}}</span></button>
 
 
   </mat-tree-node>

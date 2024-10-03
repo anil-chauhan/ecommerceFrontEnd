@@ -21,7 +21,9 @@
     <tr *ngFor="let tempProduct of products">
 
       <td>
-      <img src="assets/images/products/placeholder.png" height="25">
+      <!--<img src="assets/images/products/placeholder.png" height="25">-->
+        <img src={{tempProduct.productImageUrl}} height="25">
+
 
       </td>
 

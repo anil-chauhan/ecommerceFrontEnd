@@ -9,8 +9,8 @@
         <div *ngFor="let tempProduct of products" class="col-md-3">
 
           <div class="product-box">
-            <!--<img src="{{ tempProduct.imageUrl }}" class="img-responsive">-->
-            <img src="assets/images/products/placeholder.png" class="img-responsive">
+            <img src="{{ tempProduct.productImageUrl }}" class="img-responsive">
+            <!--<img src="assets/images/products/placeholder.png" class="img-responsive">-->
             <h1>{{ tempProduct.productName }}</h1>
             <div class="price">{{ tempProduct.price | currency:'Rs' }}</div>
             <a href="#" class="primary-btn">Add to cart</a>

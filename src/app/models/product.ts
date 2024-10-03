@@ -3,6 +3,7 @@ export class Product {
   private _urlSlug: string;
   private _categoryId: number;
   private _description: string;
+  private _categoryName: string;
   private _price: number;  // Use number for decimals in TypeScript
   private _stockQuantity: number;
   private _status: string;
@@ -14,6 +15,7 @@ export class Product {
     urlSlug: string,
     categoryId: number,
     description: string,
+    categoryName:string,
     price: number,
     stockQuantity: number,
     status: string,
@@ -24,6 +26,7 @@ export class Product {
     this._urlSlug = urlSlug;
     this._categoryId = categoryId;
     this._description = description;
+    this._categoryName = categoryName;
     this._price = price;
     this._stockQuantity = stockQuantity;
     this._status = status;
@@ -103,5 +106,13 @@ export class Product {
 
   set productImageUrl(value: string) {
     this._productImageUrl = value;
+  }
+
+  get categoryName(): string {
+    return this._categoryName;
+  }
+
+  set categoryName(value: string) {
+    this._categoryName = value;
   }
 }

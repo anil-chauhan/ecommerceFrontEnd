@@ -38,6 +38,33 @@ export class ProductService {
   }
 
 
+/*
+  addProduct(data:any): Observable<string> {
+    let productUrl = 'http://localhost:8098/add_product';
+    return this.httpClient.post<string>(productUrl,data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of();  // Return an empty array on error
+      })
+    );
+  }
+*/
+
+
+
+  addProduct(data: FormData): Observable<string> {
+    const productUrl = 'http://localhost:8098/add_product';
+    return this.httpClient.post<string>(productUrl, data).pipe(
+      map(response => response as string),  // Ensure response is cast correctly
+      catchError(error => {
+        console.error('Error adding product', error);
+        return of('');  // Return an empty string on error for better handling
+      })
+    );
+  }
+
+
 }
 
 interface GetResponse {

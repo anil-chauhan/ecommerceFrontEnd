@@ -62,16 +62,18 @@ export class AddCategoryComponent implements OnInit{
 
       this.categoryService.createCategoryByName(categoryDto).subscribe(
         response => {
-          let result = response;
-          if(result=='Category created successfully'){
-            this.router.navigate(['/'+AppRoutes.SelectCategory]);
+
+          // @ts-ignore
+          if(response["message"]=='Category created successfully') {
+            console.log('Category created successfully', response);
+            this.router.navigate(['/select_category']);
           }
+        }, error => {
+          console.error('Error creating category:', error);
         }
-      )
+      );
 
-
-
-      this.http.post('/create_category_by_name', categoryDto).subscribe(
+      /*this.http.post('/create_category_by_name', categoryDto).subscribe(
         response => {
           console.log('Category created:', response);
           this.categoryForm.reset(); // Reset form after submission
@@ -79,7 +81,7 @@ export class AddCategoryComponent implements OnInit{
         error => {
           console.error('Error creating category:', error);
         }
-      );
+      );*/
     } else {
       console.log('Form is invalid');
     }

@@ -54,6 +54,13 @@ export class SelectCategoryComponent implements OnInit {
     this.router.navigate(['/'+AppRoutes.AddCategory]);
   }
 
+
+  addProduct(subCategoryName: any) {
+    localStorage.setItem("categoryName", "subCategoryName");
+    localStorage.setItem("subCategoryName", subCategoryName);
+    this.router.navigate(['/'+AppRoutes.AddProduct]);
+  }
+
   openConfirmDialog(subCategoryName: any): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
@@ -63,6 +70,8 @@ export class SelectCategoryComponent implements OnInit {
         this.createSubCategory(subCategoryName);
         // Add your logic for "Go This Way" option
       } else {
+
+        this.addProduct(subCategoryName);
         console.log('User chose to go another way or canceled.');
         // Add your logic for "Go Other Way" option or cancellation
       }

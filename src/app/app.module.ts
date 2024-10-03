@@ -28,6 +28,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { SelectCategoryComponent } from './components/admin/select-category/select-category.component';
 import { ConfirmDialogComponent } from './components/admin/confirm-dialog/confirm-dialog.component';
 import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
+import { AddProductComponent } from './components/admin/add-product/add-product.component';
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -64,7 +65,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       LeftSideMenuTreeComponent,
       AddCategoryComponent,
       SelectCategoryComponent,
-      ConfirmDialogComponent
+      ConfirmDialogComponent,
+      AddProductComponent
   ],
   imports: [
     BrowserModule,

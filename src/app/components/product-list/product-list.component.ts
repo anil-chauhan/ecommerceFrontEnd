@@ -11,27 +11,41 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductListComponent implements OnInit{
   products: Product[] | undefined;
-  categoryName:any;
+  categoryName: any;
 
-  constructor(private productService: ProductService,private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-
-      this.categoryName = localStorage.getItem('categoryName'); // The '+' converts the string to a number
+    // Subscribe to query params to handle reload
+    this.route.queryParams.subscribe(params => {
+      if (params['reload']) {
+        this.reloadProductData(); // Call reload method
+      }
     });
-    this.listProducts( this.categoryName);
+
+    // Get category name from local storage and load products
+    this.categoryName = localStorage.getItem('categoryName');
+    this.listProducts(this.categoryName);
   }
 
-  listProducts( categoryName:any) {
-    console.log(categoryName)
-    let data={
-    "categoryName":categoryName
-    }
+  listProducts(categoryName: any) {
+    categoryName = localStorage.getItem('categoryName');
+    console.log(categoryName);
+    let data = {
+      "categoryName": categoryName
+    };
     this.productService.getProductListByCategoryName(data).subscribe(
       data => {
         this.products = data;
+      },
+      error => {
+        console.error('Error fetching products:', error);
       }
-    )
+    );
+  }
+
+  reloadProductData() {
+    // Call listProducts again with the current categoryName
+    this.listProducts(this.categoryName);
   }
 }
