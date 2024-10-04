@@ -47,18 +47,8 @@ export class LeftSideMenuTreeComponent implements OnInit{
 
   goToProduct(categoryName: any) {
     console.log(categoryName);
-    const currentCategoryName = localStorage.getItem("categoryName");
+      this.router.navigate(['/' + AppRoutes.Product],  { queryParams: {"categoryName":categoryName}});
 
-    // Check if the category name is the same
-    if (currentCategoryName !== categoryName) {
-      // Store the new category name and navigate
-      localStorage.setItem("categoryName", categoryName);
-      this.router.navigate(['/' + AppRoutes.Product], { queryParams: { reload: Date.now() } });
-    } else {
-      localStorage.setItem("categoryName", categoryName);
-      // Reload the current route to refresh data
-      this.router.navigate(['/' + AppRoutes.Product], { queryParams: { reload: Date.now() } });
-    }
   }
 
 

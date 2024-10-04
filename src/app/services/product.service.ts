@@ -38,6 +38,19 @@ export class ProductService {
   }
 
 
+
+  getProductListByProductName(data:any): Observable<Product[]> {
+    let productUrl = 'http://localhost:8098/get_all_product_by_name';
+    return this.httpClient.post<Product[]>(productUrl,data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of([]);  // Return an empty array on error
+      })
+    );
+  }
+
+
 /*
   addProduct(data:any): Observable<string> {
     let productUrl = 'http://localhost:8098/add_product';

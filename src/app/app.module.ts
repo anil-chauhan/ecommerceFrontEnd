@@ -29,6 +29,7 @@ import { SelectCategoryComponent } from './components/admin/select-category/sele
 import { ConfirmDialogComponent } from './components/admin/confirm-dialog/confirm-dialog.component';
 import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
 import { AddProductComponent } from './components/admin/add-product/add-product.component';
+import { SearchProductComponent } from './components/search-product/search-product.component';
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -66,7 +67,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       AddCategoryComponent,
       SelectCategoryComponent,
       ConfirmDialogComponent,
-      AddProductComponent
+      AddProductComponent,
+      SearchProductComponent
   ],
   imports: [
     BrowserModule,

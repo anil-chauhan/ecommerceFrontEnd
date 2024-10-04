@@ -21,16 +21,37 @@ export class ProductListComponent implements OnInit{
       if (params['reload']) {
         this.reloadProductData(); // Call reload method
       }
+
+      if (params['productSearchProductName']) {
+
+        let productName = params['productSearchProductName'];
+        this.searchProductsByName(productName);
+
+
+
+      }
+
+      if (params['categoryName']) {
+
+        // Get category name from local storage and load products
+        this.categoryName = params['categoryName'];
+        this.listProducts(this.categoryName);
+
+      }
+
+
+
+
     });
 
-    // Get category name from local storage and load products
-    this.categoryName = localStorage.getItem('categoryName');
-    this.listProducts(this.categoryName);
+
+
+
   }
 
   listProducts(categoryName: any) {
-    categoryName = localStorage.getItem('categoryName');
-    console.log(categoryName);
+    //categoryName = localStorage.getItem('categoryName');
+    //console.log(categoryName);
     let data = {
       "categoryName": categoryName
     };
@@ -43,6 +64,28 @@ export class ProductListComponent implements OnInit{
       }
     );
   }
+
+
+  searchProductsByName(productName: any) {
+    //categoryName = localStorage.getItem('categoryName');
+    //console.log(categoryName);
+    let data = {
+      "productName": productName
+    };
+    this.productService.getProductListByProductName(data).subscribe(
+      response => {
+        // @ts-ignore
+        this.products = response['content'];
+      },
+      error => {
+        console.error('Error fetching products:', error);
+      }
+    );
+  }
+
+
+
+
 
   reloadProductData() {
     // Call listProducts again with the current categoryName

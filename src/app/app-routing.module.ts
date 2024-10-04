@@ -24,6 +24,7 @@ export enum AppRoutes {
   NotFound = '404',
 
   Product = 'product/:categoryName',
+  SearchProducts = 'search',
   Category = '1',
   CategoryTree = '2',
   SubCategory="sub_category",
@@ -60,6 +61,11 @@ const routes: Routes = [
 
   {
     path: AppRoutes.Product,
+    component: ProductListComponent,
+  },
+
+  {
+    path: AppRoutes.SearchProducts,
     component: ProductListComponent,
   },
 
