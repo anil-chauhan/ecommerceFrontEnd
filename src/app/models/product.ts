@@ -1,4 +1,5 @@
 export class Product {
+  private _productId: number;
   private _productName: string;
   private _urlSlug: string;
   private _categoryId: number;
@@ -11,6 +12,7 @@ export class Product {
   private _productImageUrl: string;
 
   constructor(
+    productId: number,
     productName: string,
     urlSlug: string,
     categoryId: number,
@@ -22,6 +24,7 @@ export class Product {
     brand: string,
     productImageUrl: string
   ) {
+    this._productId = productId;
     this._productName = productName;
     this._urlSlug = urlSlug;
     this._categoryId = categoryId;
@@ -114,5 +117,14 @@ export class Product {
 
   set categoryName(value: string) {
     this._categoryName = value;
+  }
+
+
+  get productId(): number {
+    return this._productId;
+  }
+
+  set productId(value: number) {
+    this._productId = value;
   }
 }

@@ -20,11 +20,22 @@ export class ProductService {
       map(response => response._embedded.products)
     );
   }
+
   getProductListByCategoryName1(): Observable<Product[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
     );
   }
+
+
+
+  getProduct(theProductId: any): Observable<Product> {
+    // need to build URL based on product id
+    const productUrl = "http://localhost:8098/get_product_by_id";
+    return this.httpClient.post<Product>(productUrl,theProductId);
+  }
+
+
 
   getProductListByCategoryName(data:any): Observable<Product[]> {
     let productUrl = 'http://localhost:8098/get_all_product_from_a_category_by_name';

@@ -14,6 +14,7 @@ import {LeftSideMenuTreeComponent} from "./components/left-side-menu-tree/left-s
 import {AddCategoryComponent} from "./components/admin/add-category/add-category.component";
 import {SelectCategoryComponent} from "./components/admin/select-category/select-category.component";
 import {AddProductComponent} from "./components/admin/add-product/add-product.component";
+import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 
 
 export enum AppRoutes {
@@ -23,7 +24,8 @@ export enum AppRoutes {
   Logout = 'logout',
   NotFound = '404',
 
-  Product = 'product/:categoryName',
+  Product = 'product',
+  ProductDetails = 'product_details/:productId',
   SearchProducts = 'search',
   Category = '1',
   CategoryTree = '2',
@@ -68,6 +70,13 @@ const routes: Routes = [
     path: AppRoutes.SearchProducts,
     component: ProductListComponent,
   },
+
+  {
+    path: AppRoutes.ProductDetails,
+    component: ProductDetailsComponent,
+  },
+
+
 
   {
     path: AppRoutes.Category,
