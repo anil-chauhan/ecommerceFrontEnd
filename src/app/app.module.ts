@@ -32,6 +32,7 @@ import { AddProductComponent } from './components/admin/add-product/add-product.
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({
@@ -72,7 +73,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       AddProductComponent,
       SearchProductComponent,
       ProductDetailsComponent,
-      CartStatusComponent
+      CartStatusComponent,
+      CartDetailsComponent
   ],
   imports: [
     BrowserModule,
