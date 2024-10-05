@@ -1,7 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import {Product} from "../../models/product";
 import {ProductService} from "../../services/product.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {CartItem} from "../../models/cart-item";
+import {CartService} from "../../services/cart-service.service";
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +15,7 @@ export class ProductListComponent implements OnInit{
   products: Product[] | undefined;
   categoryName: any;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute,private cartServiceService: CartService) { }
 
   ngOnInit() {
     // Subscribe to query params to handle reload
@@ -90,5 +92,13 @@ export class ProductListComponent implements OnInit{
   reloadProductData() {
     // Call listProducts again with the current categoryName
     this.listProducts(this.categoryName);
+  }
+
+  addToCart(tempProduct: Product) {
+
+    console.log("product name "+tempProduct.productName);
+    console.log("product price "+tempProduct.price);
+    let theCartItem=new CartItem(tempProduct) ;
+    this.cartServiceService.addToCart(theCartItem);
   }
 }
