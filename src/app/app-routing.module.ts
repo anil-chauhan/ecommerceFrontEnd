@@ -16,6 +16,7 @@ import {SelectCategoryComponent} from "./components/admin/select-category/select
 import {AddProductComponent} from "./components/admin/add-product/add-product.component";
 import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 import {CartDetailsComponent} from "./components/cart-details/cart-details.component";
+import {CheckoutComponent} from "./components/checkout/checkout.component";
 
 
 export enum AppRoutes {
@@ -35,6 +36,7 @@ export enum AppRoutes {
   AddProduct="add_product",
   SelectCategory="select_category",
   CartDetail="cart-details",
+  CheckOut="checkout",
 }
 
 const routes: Routes = [
@@ -103,6 +105,10 @@ const routes: Routes = [
   {
     path: AppRoutes.SubCategory,
     component: SubCategoryListComponent,
+  },
+  {
+    path: AppRoutes.CheckOut,
+    component: CheckoutComponent,
   },
 
   {
