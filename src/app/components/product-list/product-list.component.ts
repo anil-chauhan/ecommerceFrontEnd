@@ -18,6 +18,8 @@ export class ProductListComponent implements OnInit{
   constructor(private productService: ProductService, private route: ActivatedRoute,private cartServiceService: CartService) { }
 
   ngOnInit() {
+
+    console.log("product list page")
     // Subscribe to query params to handle reload
     this.route.queryParams.subscribe(params => {
       if (params['reload']) {
@@ -41,6 +43,14 @@ export class ProductListComponent implements OnInit{
 
       }
 
+      if (params['categoryName']===undefined) {
+
+        // Get category name from local storage and load products
+        this.categoryName = params['categoryName'];
+        this.getAllProducts();
+
+      }
+
 
 
 
@@ -60,6 +70,23 @@ export class ProductListComponent implements OnInit{
     this.productService.getProductListByCategoryName(data).subscribe(
       data => {
         this.products = data;
+      },
+      error => {
+        console.error('Error fetching products:', error);
+      }
+    );
+  }
+
+  getAllProducts() {
+    //categoryName = localStorage.getItem('categoryName');
+    //console.log(categoryName);
+    let data = {
+      "categoryName": ""
+    };
+    this.productService.getProductsList(data).subscribe(
+      data => {
+        // @ts-ignore
+        this.products = data['content'];
       },
       error => {
         console.error('Error fetching products:', error);

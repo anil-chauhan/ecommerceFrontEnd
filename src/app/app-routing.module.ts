@@ -20,7 +20,7 @@ import {CheckoutComponent} from "./components/checkout/checkout.component";
 
 
 export enum AppRoutes {
-  Main = 'sdad',
+  Main = '',
   Protected = 'protected',
   Unprotected = 'unprotected',
   Logout = 'logout',
@@ -44,7 +44,7 @@ const routes: Routes = [
   {
     path: AppRoutes.Main,
     pathMatch: 'full',
-    component: MainPageComponent,
+    component: ProductListComponent,
   },
   {
     path: AppRoutes.Protected,
