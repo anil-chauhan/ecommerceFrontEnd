@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+
+
+  sathishaadifrontend:
+    container_name: sathishaadifrontend
+    build: .
+      #depends_on:
+      #- expressvpn01
+    #- standalone-chrome01
+    ports:
+      - '5005:80'
+    networks:
+      - my-network
+      #environment:
+      #- EXPRESSVPNIP=173.18.0.3
+      #- EXPRESSVPNPORT=4444
+
+
+
+
+# Replace 'existing-network' with the name of your existing network
+networks:
+  my-network:
+    external: true
+
+
