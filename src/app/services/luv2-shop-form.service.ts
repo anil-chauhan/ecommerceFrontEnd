@@ -4,14 +4,17 @@ import {Observable, of} from "rxjs";
 import {map} from "rxjs/operators";
 import {Country} from "../comman/country";
 import {State} from "../comman/state";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class Luv2ShopFormService {
 
-  private countriesUrl = 'http://localhost:8098/countries';
-  private statesUrl = 'http://localhost:8098/';
+  ip=environment['ip']
+
+  private countriesUrl = 'http://'+this.ip+':8098/countries';
+  private statesUrl = 'http://'+this.ip+':8098/';
 
   constructor(private httpClient: HttpClient) { }
 

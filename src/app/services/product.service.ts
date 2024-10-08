@@ -5,13 +5,16 @@ import {catchError, Observable, of} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Product} from "../models/product";
 import {Category} from "../models/category";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8098/api/products';
+  ip=environment['ip']
+
+  private baseUrl = 'http://'+this.ip+':8098/api/products';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,14 +34,14 @@ export class ProductService {
 
   getProduct(theProductId: any): Observable<Product> {
     // need to build URL based on product id
-    const productUrl = "http://localhost:8098/get_product_by_id";
+    const productUrl = "http://'+this.ip+':8098/get_product_by_id";
     return this.httpClient.post<Product>(productUrl,theProductId);
   }
 
 
 
   getProductListByCategoryName(data:any): Observable<Product[]> {
-    let productUrl = 'http://localhost:8098/get_all_product_from_a_category_by_name';
+    let productUrl = 'http://'+this.ip+':8098/get_all_product_from_a_category_by_name';
     return this.httpClient.post<Product[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
@@ -51,7 +54,7 @@ export class ProductService {
 
 
   getProductListByProductName(data:any): Observable<Product[]> {
-    let productUrl = 'http://localhost:8098/get_all_product_by_name';
+    let productUrl = 'http://'+this.ip+':8098/get_all_product_by_name';
     return this.httpClient.post<Product[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
@@ -62,7 +65,7 @@ export class ProductService {
   }
 
   getProductsList(data:any): Observable<Product[]> {
-    let productUrl = 'http://localhost:8098/get_all_product';
+    let productUrl = 'http://'+this.ip+':8098/get_all_product';
     return this.httpClient.post<Product[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
@@ -89,7 +92,7 @@ export class ProductService {
 
 
   addProduct(data: FormData): Observable<string> {
-    const productUrl = 'http://localhost:8098/add_product';
+    const productUrl = 'http://'+this.ip+':8098/add_product';
     return this.httpClient.post<string>(productUrl, data).pipe(
       map(response => response as string),  // Ensure response is cast correctly
       catchError(error => {

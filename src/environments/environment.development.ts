@@ -9,8 +9,8 @@ export const environment = {
 
 
     authority: 'http://'+ip+':8090',
-    redirectUri: 'http://'+ip+':4200',
-    postLogoutRedirectUri: 'http://'+ip+':4200/logout',
+    redirectUri: 'http://'+ip+':5005',
+    postLogoutRedirectUri: 'http://'+ip+':5005/logout',
 
 
     realm: 'ecommerce',
