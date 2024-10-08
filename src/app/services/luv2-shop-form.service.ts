@@ -11,7 +11,7 @@ import {environment} from "../../environments/environment";
 })
 export class Luv2ShopFormService {
 
-  ip=environment['ip']
+  ip:string=environment['ip']
 
   private countriesUrl = 'http://'+this.ip+':8098/countries';
   private statesUrl = 'http://'+this.ip+':8098/';

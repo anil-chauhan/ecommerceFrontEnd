@@ -12,7 +12,7 @@ import {environment} from "../../environments/environment";
 })
 export class ProductService {
 
-  ip=environment['ip']
+  ip:string=environment['ip']
 
   private baseUrl = 'http://'+this.ip+':8098/api/products';
 

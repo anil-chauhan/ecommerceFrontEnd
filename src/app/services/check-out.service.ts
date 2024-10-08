@@ -9,7 +9,7 @@ import {environment} from "../../environments/environment";
 })
 export class CheckOutService {
 
-  ip=environment['ip']
+  ip:string=environment.ip
 
 
 

@@ -14,7 +14,8 @@ import {environment} from "../../environments/environment";
 })
 export class CategoryService {
 
-  ip=environment['ip']
+  ip:string=environment['ip']
+
 
   private baseUrl = 'http://'+this.ip+':8098/get_all_category';
 
