@@ -34,13 +34,17 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { CategoryMenuComponent } from './components/shoppingUi/category-menu/category-menu.component';
+
 import { ShopDisplayProductsComponent } from './components/shoppingUi/shop-display-products/shop-display-products.component';
 import { FooterComponent } from './components/shoppingUi/footer/footer.component';
 import { HomePageComponent } from './components/shoppingUi/homePage/home-page/home-page.component';
 import { CategoryDetailsSectionComponent } from './components/shoppingUi/homePage/category-details-section/category-details-section.component';
-import { TrandyProductsComponent } from './components/shoppingUi/trandy-products/trandy-products.component';
-import { JustArrivedProductsComponent } from './components/shoppingUi/just-arrived-products/just-arrived-products.component';
+import {CategoryMenuComponent} from "./components/shoppingUi/homePage/category-menu/category-menu.component";
+import {TrandyProductsComponent} from "./components/shoppingUi/homePage/trandy-products/trandy-products.component";
+import {
+  JustArrivedProductsComponent
+} from "./components/shoppingUi/homePage/just-arrived-products/just-arrived-products.component";
+
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
   keycloak.init({

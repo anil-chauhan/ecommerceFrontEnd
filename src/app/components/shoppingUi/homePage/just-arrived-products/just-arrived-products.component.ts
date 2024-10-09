@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../../models/product";
-import {ProductService} from "../../../services/product.service";
+import {Product} from "../../../../comman/product";
+import {ProductService} from "../../../../services/product.service";
+import {ProductModel} from "../../../../models/productModel";
+
+
 
 @Component({
   selector: 'app-just-arrived-products',
@@ -9,7 +12,7 @@ import {ProductService} from "../../../services/product.service";
 })
 export class JustArrivedProductsComponent implements OnInit{
 
-  products: Product[] | undefined;
+  products: ProductModel[] | undefined;
 
   constructor(private productService: ProductService) { }
 

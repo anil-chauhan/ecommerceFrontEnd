@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../../../services/product.service";
+import {Product} from "../../../../comman/product";
+import {ProductModel} from "../../../../models/productModel";
 
-import {Product} from "../../../models/product";
+
+
 
 @Component({
   selector: 'app-trandy-products',
@@ -10,7 +13,7 @@ import {Product} from "../../../models/product";
 })
 export class TrandyProductsComponent implements OnInit{
 
-  products: Product[] | undefined;
+  products: ProductModel[] | undefined;
 
   constructor(private productService: ProductService) { }
 

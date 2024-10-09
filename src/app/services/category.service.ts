@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import {catchError, Observable, of} from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Product} from "../models/product";
+import {ProductModel} from "../models/productModel";
 import {Category} from "../models/category";
 import {Router} from "@angular/router";
 import {CategoryTree} from "../models/categoryTree";

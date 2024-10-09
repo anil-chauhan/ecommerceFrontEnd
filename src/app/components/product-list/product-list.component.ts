@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import {Product} from "../../models/product";
+import {ProductModel} from "../../models/productModel";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CartItem} from "../../models/cart-item";
@@ -12,7 +12,7 @@ import {CartService} from "../../services/cart-service.service";
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit{
-  products: Product[] | undefined;
+  products: ProductModel[] | undefined;
   categoryName: any;
 
   constructor(private productService: ProductService, private route: ActivatedRoute,private cartServiceService: CartService) { }
@@ -121,7 +121,7 @@ export class ProductListComponent implements OnInit{
     this.listProducts(this.categoryName);
   }
 
-  addToCart(tempProduct: Product) {
+  addToCart(tempProduct: ProductModel) {
 
     console.log("product name "+tempProduct.productName);
     console.log("product price "+tempProduct.price);

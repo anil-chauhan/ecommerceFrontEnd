@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoryTree} from "../../../models/categoryTree";
-import {CategoryService} from "../../../services/category.service";
+
 import {Router} from "@angular/router";
-import {AppRoutes} from "../../../app-routing.module";
+import {CategoryTree} from "../../../../models/categoryTree";
+import {CategoryService} from "../../../../services/category.service";
+import {AppRoutes} from "../../../../app-routing.module";
+
 
 @Component({
   selector: 'app-category-menu',

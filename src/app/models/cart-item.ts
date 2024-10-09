@@ -1,4 +1,4 @@
-import {Product} from "./product";
+import {ProductModel} from "./productModel";
 
 export class CartItem {
 
@@ -9,7 +9,7 @@ export class CartItem {
    private _brand: string;
    private _productImageUrl: string;
 
-  constructor(product:Product) {
+  constructor(product:ProductModel) {
     this._productId = product.productId;
     this._productName = product.productName;
     this._price = product.price;
