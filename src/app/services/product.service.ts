@@ -76,6 +76,20 @@ export class ProductService {
   }
 
 
+  getAllTrendyProductsList(data:any): Observable<Product[]> {
+    let productUrl = 'http://'+this.ip+':8098/get_all_trendy_product';
+    return this.httpClient.post<Product[]>(productUrl,data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of([]);  // Return an empty array on error
+      })
+    );
+  }
+
+
+
+
 /*
   addProduct(data:any): Observable<string> {
     let productUrl = 'http://localhost:8098/add_product';

@@ -8,6 +8,7 @@ import {Category} from "../models/category";
 import {Router} from "@angular/router";
 import {CategoryTree} from "../models/categoryTree";
 import {environment} from "../../environments/environment";
+import {CategoryResponseModel} from "../comman/categoryResponseModel";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,25 @@ export class CategoryService {
       })
     );
   }
+
+
+  private baseUrlDetails = 'http://'+this.ip+':8098/get_all_category_details';
+
+  //constructor(private httpClient: HttpClient,private router: Router) { }
+
+  getCategoryDetailsList(): Observable<CategoryResponseModel[]> {
+    return this.httpClient.get<CategoryResponseModel[]>(this.baseUrlDetails).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of([]);  // Return an empty array on error
+      })
+    );
+  }
+
+
+
+
 
   createCategoryByName(data:any): Observable<string> {
     return this.httpClient.post<string>("http://"+this.ip+":8098/create_category_by_name",data).pipe(

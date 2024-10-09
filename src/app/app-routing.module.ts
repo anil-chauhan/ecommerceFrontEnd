@@ -17,10 +17,14 @@ import {AddProductComponent} from "./components/admin/add-product/add-product.co
 import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 import {CartDetailsComponent} from "./components/cart-details/cart-details.component";
 import {CheckoutComponent} from "./components/checkout/checkout.component";
+import {
+  ShopDisplayProductsComponent
+} from "./components/shoppingUi/shop-display-products/shop-display-products.component";
+import {HomePageComponent} from "./components/shoppingUi/homePage/home-page/home-page.component";
 
 
 export enum AppRoutes {
-  Main = '',
+  Main = '11',
   Protected = 'protected',
   Unprotected = 'unprotected',
   Logout = 'logout',
@@ -37,6 +41,8 @@ export enum AppRoutes {
   SelectCategory="select_category",
   CartDetail="cart-details",
   CheckOut="checkout",
+  ShopDisplayProducts="shopDisplayProducts",
+  HomePage="",
 }
 
 const routes: Routes = [
@@ -115,6 +121,20 @@ const routes: Routes = [
     path: AppRoutes.CartDetail,
     component: CartDetailsComponent,
   },
+
+
+  {
+    path: AppRoutes.ShopDisplayProducts,
+    component: ShopDisplayProductsComponent,
+  },
+
+
+
+  {
+    path: AppRoutes.HomePage,
+    component: HomePageComponent,
+  },
+
 
 
   {
