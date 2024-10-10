@@ -1,0 +1,34 @@
+.product-item {
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent image overflow */
+  transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-body {
+  background-color: #D19C97; /* White background for the card body */
+}
+
+.card-footer {
+  background-color: #D19C97; /* Light background for the footer */
+}
+
+.img-fluid {
+  object-fit: cover; /* Cover the area while maintaining aspect ratio */
+}
+
+.toast-top-center {
+  bottom: 0;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  width: 100%;
+}

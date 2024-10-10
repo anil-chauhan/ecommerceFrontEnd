@@ -34,7 +34,7 @@ export class ProductService {
 
   getProduct(theProductId: any): Observable<ProductModel> {
     // need to build URL based on product id
-    const productUrl = "http://'+this.ip+':8098/get_product_by_id";
+    const productUrl = "http://"+this.ip+":8098/get_product_by_id";
     return this.httpClient.post<ProductModel>(productUrl,theProductId);
   }
 

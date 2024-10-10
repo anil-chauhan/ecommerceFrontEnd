@@ -13,6 +13,9 @@ export class CartService {
 
   constructor() {}
 
+
+
+
   addToCart(theCartItem: CartItem) {
     // Check if the item is already in the cart
     const existingCartItem = this.cartItems.find(item => item.productId === theCartItem.productId);

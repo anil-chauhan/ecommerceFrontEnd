@@ -21,6 +21,10 @@ import {
   ShopDisplayProductsComponent
 } from "./components/shoppingUi/shop-display-products/shop-display-products.component";
 import {HomePageComponent} from "./components/shoppingUi/homePage/home-page/home-page.component";
+import {ProductDetailsPageComponent} from "./components/shoppingUi/product-details-page/product-details-page.component";
+import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopping-cart.component";
+import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
+import {CheckOutPageComponent} from "./components/shoppingUi/check-out-page/check-out-page.component";
 
 
 export enum AppRoutes {
@@ -40,8 +44,13 @@ export enum AppRoutes {
   AddProduct="add_product",
   SelectCategory="select_category",
   CartDetail="cart-details",
+  ShoppingCart="shopping_cart",
   CheckOut="checkout",
+  AllCategories="all_categories",
+  CheckOutPage="checkout_page",
   ShopDisplayProducts="shopDisplayProducts",
+  ProductsDetailsPage="products_details_page/:productId",
+
   HomePage="",
 }
 
@@ -118,8 +127,18 @@ const routes: Routes = [
   },
 
   {
+    path: AppRoutes.CheckOutPage,
+    component: CheckOutPageComponent,
+  },
+
+  {
     path: AppRoutes.CartDetail,
     component: CartDetailsComponent,
+  },
+
+  {
+    path: AppRoutes.ShoppingCart,
+    component: ShoppingCartComponent,
   },
 
 
@@ -128,11 +147,20 @@ const routes: Routes = [
     component: ShopDisplayProductsComponent,
   },
 
-
+  {
+    path: AppRoutes.ProductsDetailsPage,
+    component: ProductDetailsPageComponent,
+  },
 
   {
     path: AppRoutes.HomePage,
     component: HomePageComponent,
+  },
+
+
+  {
+    path: AppRoutes.AllCategories,
+    component: AllCategoriesComponent,
   },
 
 

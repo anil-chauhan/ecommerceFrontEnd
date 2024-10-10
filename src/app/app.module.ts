@@ -27,7 +27,7 @@ import { AddCategoryComponent } from './components/admin/add-category/add-catego
 import {ReactiveFormsModule} from "@angular/forms";
 import { SelectCategoryComponent } from './components/admin/select-category/select-category.component';
 import { ConfirmDialogComponent } from './components/admin/confirm-dialog/confirm-dialog.component';
-import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
+import {MatDialogActions, MatDialogContent, MatDialogModule} from "@angular/material/dialog";
 import { AddProductComponent } from './components/admin/add-product/add-product.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
@@ -44,6 +44,15 @@ import {TrandyProductsComponent} from "./components/shoppingUi/homePage/trandy-p
 import {
   JustArrivedProductsComponent
 } from "./components/shoppingUi/homePage/just-arrived-products/just-arrived-products.component";
+import { PageLinkMenuComponent } from './components/shoppingUi/page-link-menu/page-link-menu.component';
+import { TopBarHelpSupportComponent } from './components/shoppingUi/top-bar-help-support/top-bar-help-support.component';
+import { ProductDetailsPageComponent } from './components/shoppingUi/product-details-page/product-details-page.component';
+import { ProductDisplayCardComponent } from './components/shoppingUi/product-display-card/product-display-card.component';
+import {ToastrModule} from "ngx-toastr";
+import { CustomDialogBoxComponent } from './components/shoppingUi/cutome-dialog-box/custom-dialog-box.component';
+import { ShoppingCartComponent } from './components/shoppingUi/shopping-cart/shopping-cart.component';
+import { AllCategoriesComponent } from './components/shoppingUi/all-categories/all-categories.component';
+import { CheckOutPageComponent } from './components/shoppingUi/check-out-page/check-out-page.component';
 
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
@@ -94,7 +103,15 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       HomePageComponent,
       CategoryDetailsSectionComponent,
       TrandyProductsComponent,
-      JustArrivedProductsComponent
+      JustArrivedProductsComponent,
+      PageLinkMenuComponent,
+      TopBarHelpSupportComponent,
+      ProductDetailsPageComponent,
+      ProductDisplayCardComponent,
+      CustomDialogBoxComponent,
+      ShoppingCartComponent,
+      AllCategoriesComponent,
+      CheckOutPageComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +128,13 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     ReactiveFormsModule,
     MatDialogContent,
     MatDialogActions,
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-top-center', // set position to top-left
+        preventDuplicates: true, // optional: prevents duplicate notifications
+      }
+    ), // ToastrModule added
+    MatDialogModule
   ],
   providers: [
     ProductService,
@@ -129,6 +153,7 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
     }),*/
 
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -46,11 +46,16 @@
 
 
               "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/assets/css/style.css"
+              "src/assets/css/style.css",
+
+              "node_modules/ngx-toastr/toastr.css"
+
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
               "src/assets/js/main.js",
+              "src/assets/js/http_code.jquery.com_jquery-3.4.1.js",
+
 
               "src/assets/lib/easing/easing.min.js",
               "src/assets/lib/owlcarousel/owl.carousel.min.js",
