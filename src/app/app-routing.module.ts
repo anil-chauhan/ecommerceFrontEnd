@@ -24,7 +24,8 @@ import {HomePageComponent} from "./components/shoppingUi/homePage/home-page/home
 import {ProductDetailsPageComponent} from "./components/shoppingUi/product-details-page/product-details-page.component";
 import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopping-cart.component";
 import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
-import {CheckOutPageComponent} from "./components/shoppingUi/check-out-page/check-out-page.component";
+import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
+
 
 
 export enum AppRoutes {

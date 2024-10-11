@@ -52,7 +52,8 @@ import {ToastrModule} from "ngx-toastr";
 import { CustomDialogBoxComponent } from './components/shoppingUi/cutome-dialog-box/custom-dialog-box.component';
 import { ShoppingCartComponent } from './components/shoppingUi/shopping-cart/shopping-cart.component';
 import { AllCategoriesComponent } from './components/shoppingUi/all-categories/all-categories.component';
-import { CheckOutPageComponent } from './components/shoppingUi/check-out-page/check-out-page.component';
+import { CheckOutCustomerFormComponent } from './components/shoppingUi/checkOutPage/check-out-customer-form/check-out-customer-form.component';
+import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
 
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
@@ -111,7 +112,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       CustomDialogBoxComponent,
       ShoppingCartComponent,
       AllCategoriesComponent,
-      CheckOutPageComponent
+      CheckOutPageComponent,
+      CheckOutCustomerFormComponent
   ],
   imports: [
     BrowserModule,
