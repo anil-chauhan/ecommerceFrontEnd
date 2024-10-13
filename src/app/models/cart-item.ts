@@ -2,12 +2,12 @@ import {ProductModel} from "./productModel";
 
 export class CartItem {
 
-   private _productId: number;
-   private _productName: string;
-   private _price: number;  // Use number for decimals in TypeScript
-   private _quantity: number;
-   private _brand: string;
-   private _productImageUrl: string;
+    _productId: number;
+    _productName: string;
+    _price: number;  // Use number for decimals in TypeScript
+    _quantity: number;
+    _brand: string;
+    _productImageUrl: string;
 
   constructor(product:ProductModel) {
     this._productId = product.productId;

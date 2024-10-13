@@ -20,8 +20,22 @@
     <a routerLink="/" class="nav-item nav-link">Contact</a>
   </div>
   <div class="navbar-nav ml-auto py-0">
-    <a href="" class="nav-item nav-link">Login</a>
-    <a href="" class="nav-item nav-link">Register</a>
+
+
+    <ng-container *ngIf="login_status_boolean">
+    <a   class="nav-item nav-link">Orders</a>
+    <a   class="nav-item nav-link">Profile</a>
+
+    </ng-container>
+
+    <a  (click)="startLogin()"  class="nav-item nav-link">{{this.login_status}}</a>
+
+    <ng-container *ngIf="login_status_boolean">
+      <a  (click)="loginOut()" class="nav-item nav-link">Logout</a>
+
+    </ng-container>
+
+
   </div>
 </div>
 

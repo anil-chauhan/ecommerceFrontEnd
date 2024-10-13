@@ -1,4 +1,5 @@
-let ip="192.168.29.198"
+//let ip="192.168.29.198"
+let ip="localhost"
 let port="4200"
 
 
@@ -13,10 +14,8 @@ export const environment = {
     authority: 'http://'+ip+':8090',
     redirectUri: 'http://'+ip+':'+port,
     postLogoutRedirectUri: 'http://'+ip+':'+port+'/logout',
-
-
     realm: 'ecommerce',
-    clientId: 'ecommerceFrontEnd',
+    clientId: 'ecommerceFrontEndNew',
   },
   idleConfig: { idle: 10, timeout: 60, ping: 10 },
     ip: ip,

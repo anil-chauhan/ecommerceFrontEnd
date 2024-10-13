@@ -54,6 +54,7 @@ import { ShoppingCartComponent } from './components/shoppingUi/shopping-cart/sho
 import { AllCategoriesComponent } from './components/shoppingUi/all-categories/all-categories.component';
 import { CheckOutCustomerFormComponent } from './components/shoppingUi/checkOutPage/check-out-customer-form/check-out-customer-form.component';
 import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
+import { UserProfileComponent } from './components/shoppingUi/user-profile/user-profile.component';
 
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
@@ -64,6 +65,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       clientId: environment.keycloak.clientId,
     },
     loadUserProfileAtStartUp: true,
+
+
     initOptions: {
       onLoad: 'check-sso',
       silentCheckSsoRedirectUri:
@@ -113,7 +116,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       ShoppingCartComponent,
       AllCategoriesComponent,
       CheckOutPageComponent,
-      CheckOutCustomerFormComponent
+      CheckOutCustomerFormComponent,
+      UserProfileComponent
   ],
   imports: [
     BrowserModule,

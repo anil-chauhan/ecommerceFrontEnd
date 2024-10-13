@@ -25,6 +25,7 @@ import {ProductDetailsPageComponent} from "./components/shoppingUi/product-detai
 import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopping-cart.component";
 import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
 import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
+import {UserProfileComponent} from "./components/shoppingUi/user-profile/user-profile.component";
 
 
 
@@ -51,6 +52,10 @@ export enum AppRoutes {
   CheckOutPage="checkout_page",
   ShopDisplayProducts="shopDisplayProducts",
   ProductsDetailsPage="products_details_page/:productId",
+
+
+  Login="login",
+  Register="register",
 
   HomePage="",
 }
@@ -124,11 +129,13 @@ const routes: Routes = [
   },
   {
     path: AppRoutes.CheckOut,
+    canActivate: [AuthGuard],
     component: CheckoutComponent,
   },
 
   {
     path: AppRoutes.CheckOutPage,
+    canActivate: [AuthGuard],
     component: CheckOutPageComponent,
   },
 
@@ -145,6 +152,7 @@ const routes: Routes = [
 
   {
     path: AppRoutes.ShopDisplayProducts,
+    //canActivate: [AuthGuard],
     component: ShopDisplayProductsComponent,
   },
 
@@ -155,6 +163,19 @@ const routes: Routes = [
 
   {
     path: AppRoutes.HomePage,
+    component: HomePageComponent,
+  },
+
+
+  {
+    path: AppRoutes.AllCategories,
+    component: AllCategoriesComponent,
+  },
+
+
+  {
+    path: AppRoutes.Login,
+    canActivate: [AuthGuard],
     component: HomePageComponent,
   },
 

@@ -41,6 +41,7 @@ export class CheckoutComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("lastPage");
     this.reviewCartDetails();
 
     this.checkoutFormGroup = this.formBuilder.group({

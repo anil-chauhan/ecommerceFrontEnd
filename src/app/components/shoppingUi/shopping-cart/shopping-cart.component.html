@@ -78,11 +78,11 @@
         <tr  *ngFor="let tempCartItem of cartItems">
 
            <td class="align-middle">
-            <img src="{{ tempCartItem.productImageUrl }}" alt="" style="width: 50px;">
+            <img src="{{ tempCartItem._productImageUrl }}" alt="" style="width: 50px;">
            </td>
 
-          <td class="align-middle">{{ tempCartItem.productName }}</td>
-          <td class="align-middle">{{ tempCartItem.price | currency: 'Rs ' }}</td>
+          <td class="align-middle">{{ tempCartItem._productName }}</td>
+          <td class="align-middle">{{ tempCartItem._price | currency: 'Rs ' }}</td>
 
 
           <td class="align-middle">
@@ -92,7 +92,7 @@
                   <i class="fa fa-minus"></i>
                 </button>
               </div>
-              <input type="text" class="form-control form-control-sm bg-secondary text-center" [value]="tempCartItem.quantity">
+              <input type="text" class="form-control form-control-sm bg-secondary text-center" [value]="tempCartItem._quantity">
 
               <div class="input-group-btn">
                 <button  (click)="incrementQuantity(tempCartItem)" class="btn btn-sm btn-primary btn-plus">
@@ -101,7 +101,7 @@
               </div>
             </div>
           </td>
-          <td class="align-middle">{{ tempCartItem.price *tempCartItem.quantity | currency: 'Rs ' }}</td>
+          <td class="align-middle">{{ tempCartItem._price *tempCartItem._quantity | currency: 'Rs ' }}</td>
           <td class="align-middle">
             <button   (click)="remove(tempCartItem)" class="btn btn-sm btn-primary"><i class="fa fa-times">
             </i></button></td>
@@ -152,7 +152,7 @@
             <h5 class="font-weight-bold">Total</h5>
             <h5 class="font-weight-bold">{{ totalPrice +totalShippingCharge | currency: 'Rs ' }}</h5>
           </div>
-          <button  routerLink="/checkout_page"  class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+          <button  (click)="go_to_checkout()"   class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
         </div>
       </div>
     </div>
