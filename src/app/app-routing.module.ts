@@ -26,6 +26,7 @@ import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopp
 import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
 import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
 import {UserProfileComponent} from "./components/shoppingUi/user-profile/user-profile.component";
+import {OrdersMainPageComponent} from "./components/shoppingUi/orders-main-page/orders-main-page.component";
 
 
 
@@ -52,6 +53,8 @@ export enum AppRoutes {
   CheckOutPage="checkout_page",
   ShopDisplayProducts="shopDisplayProducts",
   ProductsDetailsPage="products_details_page/:productId",
+
+  OrderMainPage="order_main_page",
 
 
   Login="login",
@@ -170,6 +173,11 @@ const routes: Routes = [
   {
     path: AppRoutes.AllCategories,
     component: AllCategoriesComponent,
+  },
+
+  {
+    path: AppRoutes.OrderMainPage,
+    component: OrdersMainPageComponent,
   },
 
 

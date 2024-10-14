@@ -21,7 +21,8 @@ export class PageLinkMenuComponent implements OnInit {
 
     if(this.authorizationService.isLoggedIn()){
       this.login_status_boolean=true;
-      this.login_status="Welcome "+this.authorizationService.userName
+      let userProfile = this.authorizationService.getUserProfile();
+      this.login_status="Welcome "+userProfile.__zone_symbol__value.username;
     }else {
       this.login_status="Login"
     }

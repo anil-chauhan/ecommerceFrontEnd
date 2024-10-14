@@ -55,6 +55,7 @@ import { AllCategoriesComponent } from './components/shoppingUi/all-categories/a
 import { CheckOutCustomerFormComponent } from './components/shoppingUi/checkOutPage/check-out-customer-form/check-out-customer-form.component';
 import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
 import { UserProfileComponent } from './components/shoppingUi/user-profile/user-profile.component';
+import { OrdersMainPageComponent } from './components/shoppingUi/orders-main-page/orders-main-page.component';
 
 
 export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
@@ -117,7 +118,8 @@ export const initializeKeycloak = (keycloak: KeycloakService) => async () =>
       AllCategoriesComponent,
       CheckOutPageComponent,
       CheckOutCustomerFormComponent,
-      UserProfileComponent
+      UserProfileComponent,
+      OrdersMainPageComponent
   ],
   imports: [
     BrowserModule,
