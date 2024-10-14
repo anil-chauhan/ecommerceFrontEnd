@@ -1,0 +1,173 @@
+<!-- Topbar Start -->
+
+<app-top-bar-help-support></app-top-bar-help-support>
+
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid">
+  <div class="row border-top px-xl-5">
+
+
+
+    <app-category-menu class="col-lg-3 d-none d-lg-block"></app-category-menu>
+
+    <div class="col-lg-9">
+      <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+        <a href="" class="text-decoration-none d-block d-lg-none">
+          <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Munna</span>Store</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <app-page-link-menu></app-page-link-menu>
+
+
+
+
+      </nav>
+
+
+
+      <!-- Page Header Start -->
+      <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 50px">
+          <h3 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h3>
+          <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Shopping Cart</p>
+          </div>
+        </div>
+      </div>
+      <!-- Page Header End -->
+
+
+
+    </div>
+
+
+  </div>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Cart Start -->
+<div class="container-fluid pt-5">
+  <div class="row px-xl-5">
+    <div class="col-lg-8 table-responsive mb-5">
+
+
+      <div *ngIf="cartItems.length > 0">
+
+      <table class="table table-bordered text-center mb-0">
+        <thead class="bg-secondary text-dark">
+        <tr>
+          <th>Products</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody class="align-middle">
+
+
+        <tr  *ngFor="let tempCartItem of cartItems">
+
+           <td class="align-middle">
+            <img src="{{ tempCartItem._productImageUrl }}" alt="" style="width: 50px;">
+           </td>
+
+          <td class="align-middle">{{ tempCartItem._productName }}</td>
+          <td class="align-middle">{{ tempCartItem._price | currency: 'Rs ' }}</td>
+
+
+          <td class="align-middle">
+            <div class="input-group quantity mx-auto" style="width: 100px;">
+              <div class="input-group-btn">
+                <button   (click)="decrementQuantity(tempCartItem)" class="btn btn-sm btn-primary btn-minus" >
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <input type="text" class="form-control form-control-sm bg-secondary text-center" [value]="tempCartItem._quantity">
+
+              <div class="input-group-btn">
+                <button  (click)="incrementQuantity(tempCartItem)" class="btn btn-sm btn-primary btn-plus">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </td>
+          <td class="align-middle">{{ tempCartItem._price *tempCartItem._quantity | currency: 'Rs ' }}</td>
+          <td class="align-middle">
+            <button   (click)="remove(tempCartItem)" class="btn btn-sm btn-primary"><i class="fa fa-times">
+            </i></button></td>
+        </tr>
+
+
+
+
+
+
+
+        </tbody>
+      </table>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="col-lg-4">
+      <form class="mb-5" action="">
+        <div class="input-group">
+          <input type="text" class="form-control p-4" placeholder="Coupon Code">
+          <div class="input-group-append">
+            <button class="btn btn-primary">Apply Coupon</button>
+          </div>
+        </div>
+      </form>
+      <div class="card border-secondary mb-5">
+        <div class="card-header bg-secondary border-0">
+          <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3 pt-1">
+            <h6 class="font-weight-medium">Subtotal</h6>
+            <h6 class="font-weight-medium">{{this.totalPrice | currency: 'Rs '}}</h6>
+          </div>
+          <div class="d-flex justify-content-between">
+            <h6 class="font-weight-medium">Shipping</h6>
+            <h6 class="font-weight-medium">{{this.totalShippingCharge | currency: 'Rs '}}</h6>
+          </div>
+        </div>
+        <div class="card-footer border-secondary bg-transparent">
+          <div class="d-flex justify-content-between mt-2">
+            <h5 class="font-weight-bold">Total</h5>
+            <h5 class="font-weight-bold">{{ totalPrice +totalShippingCharge | currency: 'Rs ' }}</h5>
+          </div>
+          <button  (click)="go_to_checkout()"   class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Cart End -->
+
+
+<!-- Footer Start -->
+
+<app-footer></app-footer>
+
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+

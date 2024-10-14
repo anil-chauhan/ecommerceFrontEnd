@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../../services/product.service";
-import {Product} from "../../../models/product";
+import {ProductModel} from "../../../models/productModel";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppRoutes} from "../../../app-routing.module";
 
@@ -32,7 +32,7 @@ export class AddProductComponent implements OnInit{
   onSubmit() {
     if (this.productForm.valid && this.productImage) {
       this.productForm.value.categoryName=this.subCategoryName;
-      const productDto: Product = this.productForm.value;
+      const productDto: ProductModel = this.productForm.value;
       const formData = new FormData();
 
       for (const key in productDto) {

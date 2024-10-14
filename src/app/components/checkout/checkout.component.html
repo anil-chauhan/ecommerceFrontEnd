@@ -1,6 +1,8 @@
 
 <div class="main-content page-m">
   <div class="section-content section-content-p30">
+
+
     <div class="container-fluid">
       <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
 
@@ -258,7 +260,11 @@
           </div>
         </div>
 
-        <!--&lt;!&ndash; Credit Card &ndash;&gt;-->
+
+        <!--
+
+
+        &lt;!&ndash;&lt;!&ndash; Credit Card &ndash;&gt;&ndash;&gt;
         <div formGroupName="creditCard" class="form-area">
           <h3>Credit Card</h3>
 
@@ -354,6 +360,10 @@
           </div>
         </div>
 
+
+        -->
+
+
         <!--&lt;!&ndash; Order Details &ndash;&gt;-->
         <div class="form-area">
           <h3>Review Your Order</h3>
@@ -362,14 +372,22 @@
           <p>Total Price: {{ totalPrice | currency: 'Rs ' }}</p>
         </div>
 
-        <!-- Submit Button -->
+
+        <div class="card-footer border-secondary bg-transparent">
+          <button type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
+        </div>
+
+        <!--&lt;!&ndash; Submit Button &ndash;&gt;
         <div class="text-center">
           <button type="submit" class="btn btn-danger">Purchase</button>
         </div>
-
+-->
 
 
       </form>
     </div>
+
+
+
   </div>
 </div>

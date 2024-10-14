@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import {catchError, Observable, of} from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Product} from "../models/product";
+import {ProductModel} from "../models/productModel";
 import {Category} from "../models/category";
 import {environment} from "../../environments/environment";
 
@@ -18,13 +18,13 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProductList(): Observable<Product[]> {
+  getProductList(): Observable<ProductModel[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
     );
   }
 
-  getProductListByCategoryName1(): Observable<Product[]> {
+  getProductListByCategoryName1(): Observable<ProductModel[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
     );
@@ -32,17 +32,17 @@ export class ProductService {
 
 
 
-  getProduct(theProductId: any): Observable<Product> {
+  getProduct(theProductId: any): Observable<ProductModel> {
     // need to build URL based on product id
-    const productUrl = "http://'+this.ip+':8098/get_product_by_id";
-    return this.httpClient.post<Product>(productUrl,theProductId);
+    const productUrl = "http://"+this.ip+":8098/get_product_by_id";
+    return this.httpClient.post<ProductModel>(productUrl,theProductId);
   }
 
 
 
-  getProductListByCategoryName(data:any): Observable<Product[]> {
+  getProductListByCategoryName(data:any): Observable<ProductModel[]> {
     let productUrl = 'http://'+this.ip+':8098/get_all_product_from_a_category_by_name';
-    return this.httpClient.post<Product[]>(productUrl,data).pipe(
+    return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
         console.error('Error fetching categories', error);
@@ -53,9 +53,9 @@ export class ProductService {
 
 
 
-  getProductListByProductName(data:any): Observable<Product[]> {
+  getProductListByProductName(data:any): Observable<ProductModel[]> {
     let productUrl = 'http://'+this.ip+':8098/get_all_product_by_name';
-    return this.httpClient.post<Product[]>(productUrl,data).pipe(
+    return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
         console.error('Error fetching categories', error);
@@ -64,9 +64,9 @@ export class ProductService {
     );
   }
 
-  getProductsList(data:any): Observable<Product[]> {
+  getProductsList(data:any): Observable<ProductModel[]> {
     let productUrl = 'http://'+this.ip+':8098/get_all_product';
-    return this.httpClient.post<Product[]>(productUrl,data).pipe(
+    return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(
       map(response => response),  // Directly return the array
       catchError(error => {
         console.error('Error fetching categories', error);
@@ -74,6 +74,20 @@ export class ProductService {
       })
     );
   }
+
+
+  getAllTrendyProductsList(data:any): Observable<ProductModel[]> {
+    let productUrl = 'http://'+this.ip+':8098/get_all_trendy_product';
+    return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of([]);  // Return an empty array on error
+      })
+    );
+  }
+
+
 
 
 /*
@@ -107,6 +121,6 @@ export class ProductService {
 
 interface GetResponse {
   _embedded: {
-    products: Product[];
+    products: ProductModel[];
   }
 }

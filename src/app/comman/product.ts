@@ -1,4 +1,5 @@
-export class Product {
+/*
+export class ProductComan {
     id: string;
     sku: string;
     name: string;
@@ -24,3 +25,4 @@ export class Product {
     this.lastUpdate = lastUpdate;
   }
 }
+*/

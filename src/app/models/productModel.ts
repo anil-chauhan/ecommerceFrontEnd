@@ -1,4 +1,4 @@
-export class Product {
+export class ProductModel {
   private _productId: number;
   private _productName: string;
   private _urlSlug: string;

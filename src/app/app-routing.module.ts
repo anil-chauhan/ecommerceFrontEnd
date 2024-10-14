@@ -17,10 +17,20 @@ import {AddProductComponent} from "./components/admin/add-product/add-product.co
 import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 import {CartDetailsComponent} from "./components/cart-details/cart-details.component";
 import {CheckoutComponent} from "./components/checkout/checkout.component";
+import {
+  ShopDisplayProductsComponent
+} from "./components/shoppingUi/shop-display-products/shop-display-products.component";
+import {HomePageComponent} from "./components/shoppingUi/homePage/home-page/home-page.component";
+import {ProductDetailsPageComponent} from "./components/shoppingUi/product-details-page/product-details-page.component";
+import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopping-cart.component";
+import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
+import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
+import {UserProfileComponent} from "./components/shoppingUi/user-profile/user-profile.component";
+
 
 
 export enum AppRoutes {
-  Main = '',
+  Main = '11',
   Protected = 'protected',
   Unprotected = 'unprotected',
   Logout = 'logout',
@@ -36,7 +46,18 @@ export enum AppRoutes {
   AddProduct="add_product",
   SelectCategory="select_category",
   CartDetail="cart-details",
+  ShoppingCart="shopping_cart",
   CheckOut="checkout",
+  AllCategories="all_categories",
+  CheckOutPage="checkout_page",
+  ShopDisplayProducts="shopDisplayProducts",
+  ProductsDetailsPage="products_details_page/:productId",
+
+
+  Login="login",
+  Register="register",
+
+  HomePage="",
 }
 
 const routes: Routes = [
@@ -108,13 +129,62 @@ const routes: Routes = [
   },
   {
     path: AppRoutes.CheckOut,
+    canActivate: [AuthGuard],
     component: CheckoutComponent,
+  },
+
+  {
+    path: AppRoutes.CheckOutPage,
+    canActivate: [AuthGuard],
+    component: CheckOutPageComponent,
   },
 
   {
     path: AppRoutes.CartDetail,
     component: CartDetailsComponent,
   },
+
+  {
+    path: AppRoutes.ShoppingCart,
+    component: ShoppingCartComponent,
+  },
+
+
+  {
+    path: AppRoutes.ShopDisplayProducts,
+    //canActivate: [AuthGuard],
+    component: ShopDisplayProductsComponent,
+  },
+
+  {
+    path: AppRoutes.ProductsDetailsPage,
+    component: ProductDetailsPageComponent,
+  },
+
+  {
+    path: AppRoutes.HomePage,
+    component: HomePageComponent,
+  },
+
+
+  {
+    path: AppRoutes.AllCategories,
+    component: AllCategoriesComponent,
+  },
+
+
+  {
+    path: AppRoutes.Login,
+    canActivate: [AuthGuard],
+    component: HomePageComponent,
+  },
+
+
+  {
+    path: AppRoutes.AllCategories,
+    component: AllCategoriesComponent,
+  },
+
 
 
   {

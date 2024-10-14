@@ -13,6 +13,9 @@ export class CartService {
 
   constructor() {}
 
+
+
+
   addToCart(theCartItem: CartItem) {
     // Check if the item is already in the cart
     const existingCartItem = this.cartItems.find(item => item.productId === theCartItem.productId);
@@ -35,8 +38,8 @@ export class CartService {
     let totalQuantityValue = 0;
 
     for (const currentCartItem of this.cartItems) {
-      totalPriceValue += currentCartItem.quantity * currentCartItem.price;
-      totalQuantityValue += currentCartItem.quantity;
+      totalPriceValue += currentCartItem._quantity * currentCartItem._price;
+      totalQuantityValue += currentCartItem._quantity;
     }
 
     // Publish the new values to all subscribers
@@ -50,8 +53,8 @@ export class CartService {
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
     console.log('Contents of the cart:');
     for (const tempCartItem of this.cartItems) {
-      const subTotalPrice = tempCartItem.quantity * tempCartItem.price;
-      console.log(`name: ${tempCartItem.productName}, quantity: ${tempCartItem.quantity}, unitPrice: ${tempCartItem.price}, subTotalPrice: ${subTotalPrice}`);
+      const subTotalPrice = tempCartItem._quantity * tempCartItem._price;
+      console.log(`name: ${tempCartItem._productName}, quantity: ${tempCartItem._quantity}, unitPrice: ${tempCartItem._price}, subTotalPrice: ${subTotalPrice}`);
     }
 
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
@@ -60,9 +63,9 @@ export class CartService {
 
   decrementQuantity(theCartItem: CartItem) {
 
-    theCartItem.quantity--;
+    theCartItem._quantity--;
 
-    if (theCartItem.quantity === 0) {
+    if (theCartItem._quantity === 0) {
       this.remove(theCartItem);
     }
     else {
@@ -73,7 +76,7 @@ export class CartService {
   remove(theCartItem: CartItem) {
 
     // get index of item in the array
-    const itemIndex = this.cartItems.findIndex( tempCartItem => tempCartItem.productId === theCartItem.productId );
+    const itemIndex = this.cartItems.findIndex( tempCartItem => tempCartItem._productId === theCartItem._productId );
 
     // if found, remove the item from the array at the given index
     if (itemIndex > -1) {

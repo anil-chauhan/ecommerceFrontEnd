@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../models/product";
+import {ProductModel} from "../../models/productModel";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
 import {CartItem} from "../../models/cart-item";
@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   // @ts-ignore
-  product: Product = new Product();
+  product: ProductModel = new ProductModel();
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,private cartService: CartService) { }
@@ -45,7 +45,7 @@ export class ProductDetailsComponent implements OnInit {
     )
   }
 
-  addToCart(tempProduct: Product) {
+  addToCart(tempProduct: ProductModel) {
 
     console.log("product name "+tempProduct.productName);
     console.log("product price "+tempProduct.price);
