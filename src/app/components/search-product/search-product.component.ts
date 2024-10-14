@@ -15,6 +15,7 @@ export class SearchProductComponent implements OnInit {
   constructor(private router: Router) {
   }
 
+
   doSearch(productSearchProductName: string) {
 
     console.log(`value=${productSearchProductName}`);
