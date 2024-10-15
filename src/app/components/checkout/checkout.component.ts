@@ -12,6 +12,7 @@ import {Purchase} from "../../comman/purchase";
 import {Order} from "../../comman/order";
 import {OrderService} from "../../services/order-service";
 import {AuthorizationService} from "../../services/authorization.service";
+import {PaymentStatus} from "../../comman/payment_status";
 
 
 //const Razorpay = require('razorpay');
@@ -120,16 +121,21 @@ export class CheckoutComponent implements OnInit {
       }),
 
 
-      shippingAddress: this.formBuilder.group({
+      /*shippingAddress: this.formBuilder.group({
+
         street: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
         city: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
         state: ['', [Validators.required]],
         country: ['', [Validators.required]],
         zipCode: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]]
-      }),
+      }),*/
+
+
+
       billingAddress: this.formBuilder.group({
-        street: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
-        city: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
+        houseNo: ['s-24', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
+        street: ['pahalwan dawa gali', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
+        city: ['Delhi', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]],
         state: ['', [Validators.required]],
         country: ['', [Validators.required]],
         zipCode: ['', [Validators.required, Validators.minLength(2), Luv2ShopValidator.notOnlyWhitespace]]
@@ -215,6 +221,10 @@ export class CheckoutComponent implements OnInit {
     return this.checkoutFormGroup.get('billingAddress.street');
   }
 
+  get billingHouseNo() {
+    return this.checkoutFormGroup.get('billingAddress.houseNo');
+  }
+
   get billingAddressCity() {
     return this.checkoutFormGroup.get('billingAddress.city');
   }
@@ -266,9 +276,9 @@ export class CheckoutComponent implements OnInit {
     // @ts-ignore
     console.log("The email address is " + this.checkoutFormGroup.get('customer').value.email);
     // @ts-ignore
-    console.log("The shipping address country is " + this.checkoutFormGroup.get('shippingAddress').value.country.name);
+    console.log("The shipping address country is " + this.checkoutFormGroup.get('billingAddress').value.country.name);
     // @ts-ignore
-    console.log("The shipping address state is " + this.checkoutFormGroup.get('shippingAddress').value.state.name);
+    console.log("The shipping address state is " + this.checkoutFormGroup.get('billingAddress').value.state.name);
 
 
     // set up order
@@ -299,19 +309,23 @@ export class CheckoutComponent implements OnInit {
     // populate purchase - customer
     purchase.customer = this.checkoutFormGroup.controls['customer'].value;
 
-    // populate purchase - shipping address
+    /*// populate purchase - shipping address
     purchase.shippingAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
+    const shippingHouseNo: State = JSON.parse(JSON.stringify(purchase.shippingAddress.houseNo));
     const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
     const shippingCountry: Country = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
     purchase.shippingAddress.state = shippingState.name;
-    purchase.shippingAddress.country = shippingCountry.name;
+    purchase.shippingAddress.country = shippingCountry.name;*/
 
     // populate purchase - billing address
     purchase.billingAddress = this.checkoutFormGroup.controls['billingAddress'].value;
     const billingState: State = JSON.parse(JSON.stringify(purchase.billingAddress.state));
     const billingCountry: Country = JSON.parse(JSON.stringify(purchase.billingAddress.country));
-    purchase.billingAddress.state = billingState.name;
+    const billingHouseNo: string = JSON.parse(JSON.stringify(purchase.billingAddress.houseNo));
     purchase.billingAddress.country = billingCountry.name;
+    purchase.billingAddress.state = billingState.name;
+    purchase.billingAddress.houseNo = billingHouseNo;
+
 
     // populate purchase - order and orderItems
     purchase.order = order;
@@ -398,7 +412,37 @@ export class CheckoutComponent implements OnInit {
   @HostListener('window:payment.success', ['$event'])
   onPaymentSuccess(event: { detail: any; }): void {
     console.log(event.detail);
+
+    event.detail.razorpay_payment_id
+
+    let paymentStatus:PaymentStatus= new PaymentStatus()
+    paymentStatus.razorpay_payment_id=event.detail.razorpay_payment_id
+    paymentStatus.razorpay_order_id=event.detail.razorpay_order_id
+    paymentStatus.razorpay_signature=event.detail.razorpay_signature
+
+
+    let data={
+
+      "razorpayPaymentId":event.detail.razorpay_payment_id,
+      "razorpayOrderId":event.detail.razorpay_order_id,
+      "razorpaySignature":event.detail.razorpay_signature
+    }
+
+
+
+
+
+    this.update_payment_status(data)
     this.resetCart()
+  }
+
+
+
+  update_payment_status(paymentStatus: any){
+    this.orderService.update_payment_status(paymentStatus).subscribe(data => {
+      console.log("Retrieved countries: " + JSON.stringify(data));
+      this.countries = data;
+    });
   }
 
 
