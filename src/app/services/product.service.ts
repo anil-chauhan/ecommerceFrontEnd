@@ -76,6 +76,18 @@ export class ProductService {
   }
 
 
+  getProductsListByCategoryId(data:any): Observable<ProductModel[]> {
+    let productUrl = 'http://'+this.ip+':8098/get_all_product_by_category_id';
+    return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(
+      map(response => response),  // Directly return the array
+      catchError(error => {
+        console.error('Error fetching categories', error);
+        return of([]);  // Return an empty array on error
+      })
+    );
+  }
+
+
   getAllTrendyProductsList(data:any): Observable<ProductModel[]> {
     let productUrl = 'http://'+this.ip+':8098/get_all_trendy_product';
     return this.httpClient.post<ProductModel[]>(productUrl,data).pipe(

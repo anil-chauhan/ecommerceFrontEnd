@@ -25,4 +25,11 @@ export class AuthorizationService {
   }
 
 
+  getUserProfile():any {
+
+    if (this.isLoggedIn()) {
+      return this.keycloakService.loadUserProfile();
+    }
+  }
+
 }
