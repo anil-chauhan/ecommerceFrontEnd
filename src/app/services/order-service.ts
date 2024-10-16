@@ -59,6 +59,16 @@ export class OrderService {
   }
 
 
+  getAddressByCustomerEmail(customerEmail: any): Observable<any> {
+
+    let data={
+      "customerEmail":customerEmail
+    }
+
+    return this.http.post("http://localhost:8098/api/checkout/get_address_by_customer_email", data, httpOptions);
+  }
+
+
 
 
 
