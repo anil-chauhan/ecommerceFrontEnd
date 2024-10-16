@@ -3,6 +3,7 @@ import {CategoryService} from "../../../../services/category.service";
 import {Router} from "@angular/router";
 
 import {CategoryResponseModel} from "../../../../comman/categoryResponseModel";
+import {AppRoutes} from "../../../../app-routing.module";
 
 @Component({
   selector: 'app-category-details-section',
@@ -29,4 +30,10 @@ export class CategoryDetailsSectionComponent implements OnInit{
     )
   }
 
+  showProductByCategory(categoryId: number) {
+
+    this.router.navigate(['/' + AppRoutes.ShowProductByCategory],  { queryParams: {"categoryId":categoryId}});
+
+
+  }
 }

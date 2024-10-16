@@ -26,7 +26,16 @@ import {ShoppingCartComponent} from "./components/shoppingUi/shopping-cart/shopp
 import {AllCategoriesComponent} from "./components/shoppingUi/all-categories/all-categories.component";
 import {CheckOutPageComponent} from "./components/shoppingUi/checkOutPage/check-out-page/check-out-page.component";
 import {UserProfileComponent} from "./components/shoppingUi/user-profile/user-profile.component";
-import {OrdersMainPageComponent} from "./components/shoppingUi/orders-main-page/orders-main-page.component";
+import {
+  OrdersMainPageComponent
+} from "./components/shoppingUi/ordersDetailsPage/orders-main-page/orders-main-page.component";
+import {
+  ShowOrderedItemsComponent
+} from "./components/shoppingUi/ordersDetailsPage/show-ordered-items/show-ordered-items.component";
+import {
+  ShowProductByCategoryComponent
+} from "./components/shoppingUi/show-product-by-category/show-product-by-category.component";
+
 
 
 
@@ -55,6 +64,8 @@ export enum AppRoutes {
   ProductsDetailsPage="products_details_page/:productId",
 
   OrderMainPage="order_main_page",
+  ShowOrderedItems="show_ordered_items",
+  ShowProductByCategory="show_product_by_category",
 
 
   Login="login",
@@ -165,19 +176,28 @@ const routes: Routes = [
   },
 
   {
+    path: AppRoutes.ShowProductByCategory,
+    component: ShowProductByCategoryComponent,
+  },
+
+
+
+  {
     path: AppRoutes.HomePage,
     component: HomePageComponent,
   },
 
 
-  {
-    path: AppRoutes.AllCategories,
-    component: AllCategoriesComponent,
-  },
+
 
   {
     path: AppRoutes.OrderMainPage,
     component: OrdersMainPageComponent,
+  },
+
+  {
+    path: AppRoutes.ShowOrderedItems,
+    component: ShowOrderedItemsComponent,
   },
 
 
@@ -192,6 +212,7 @@ const routes: Routes = [
     path: AppRoutes.AllCategories,
     component: AllCategoriesComponent,
   },
+
 
 
 

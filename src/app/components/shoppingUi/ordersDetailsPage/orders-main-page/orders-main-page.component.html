@@ -1,0 +1,168 @@
+<!-- Topbar Start -->
+<app-top-bar-help-support></app-top-bar-help-support>
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid">
+  <div class="row border-top px-xl-5">
+
+
+    <app-category-menu class="col-lg-3 d-none d-lg-block"></app-category-menu>
+
+
+
+
+    <div class="col-lg-9">
+
+
+      <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+        <a href="" class="text-decoration-none d-block d-lg-none">
+          <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Munna</span>Store</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+        <app-page-link-menu></app-page-link-menu>
+
+
+
+
+
+      </nav>
+
+
+
+
+
+      <!-- Page Header Start -->
+      <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 50px">
+          <h3 class="font-weight-semi-bold text-uppercase mb-3">Orders</h3>
+          <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Order</p>
+          </div>
+        </div>
+      </div>
+      <!-- Page Header End -->
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Checkout Start -->
+<div class="container-fluid pt-5">
+  <div class="row px-xl-5">
+
+    <div class="col-lg-12 table-responsive mb-5">
+
+
+      <div *ngIf="ordersLoaded">
+
+
+        <table class="table table-bordered text-center mb-0">
+          <thead class="bg-secondary text-dark">
+          <tr>
+            <th>order Tracking Number</th>
+            <th>Payment Id</th>
+            <th>Order Id</th>
+            <th>order Status</th>
+            <th>payment Status</th>
+            <th>total Quantity</th>
+            <th>show Items</th>
+            <th>total Price</th>
+            <th>order date </th>
+            <th>last update date </th>
+          </tr>
+          </thead>
+          <tbody class="align-middle">
+
+
+          <tr  *ngFor="let tempCartItem of myOrders$ | async">
+
+
+            <td class="align-middle">{{ tempCartItem.orderTrackingNumber }}</td>
+            <td class="align-middle">{{ tempCartItem.razorpayPaymentId }}</td>
+            <td class="align-middle">{{ tempCartItem.razorpayOrderId }}</td>
+            <td class="align-middle">{{ tempCartItem.orderStatus }}</td>
+
+
+
+            <td   *ngIf="tempCartItem.paymentStatus == 'paid'" class="align-middle">{{ tempCartItem.paymentStatus }}</td>
+
+
+            <td   *ngIf="tempCartItem.paymentStatus == 'pending'" class="align-middle">
+
+              <a>
+              {{ tempCartItem.paymentStatus }}
+              </a>
+              <button (click)="pay_pending_payment(tempCartItem.razorpayOrderId)"  class="btn btn-primary" href="#">
+                Pay
+              </button>
+
+            </td>
+
+            <td class="align-middle">{{ tempCartItem.totalQuantity }}</td>
+
+            <td class="align-middle">
+              <button (click)="show_ordered_items(tempCartItem.id,tempCartItem.totalPrice)"  class="btn btn-primary" href="#">
+                Show
+              </button>
+
+            </td>
+            <td class="align-middle">{{ tempCartItem.totalPrice | currency: 'Rs '}}</td>
+            <td class="align-middle">{{ tempCartItem.dateCreated | date: 'MMM d, y, h:mm:ss a' }}</td>
+            <td class="align-middle">{{ tempCartItem.lastUpdated  | date: 'MMM d, y, h:mm:ss a' }}</td>
+
+          </tr>
+
+
+          </tbody>
+        </table>
+
+
+        <ng-template #loading1>
+          <p>Loading orders...</p>
+        </ng-template>
+
+        <ng-template #noOrders>
+          <p>No orders found.</p>
+        </ng-template>
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+<!-- Checkout End -->
+
+
+<!-- Footer Start -->
+
+<app-footer></app-footer>
+
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
